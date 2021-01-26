@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crud operation in javascript</title>
+    <link type="text/css" rel="stylesheet" href="style2.css">
+    <script type="text/javascript" src="./script.js"></script>
+</head>
+
+<body onload="init()">
+<div class="block"></div>
+
+<div class="summary">
+    <p> <b> CRUD operations </b> </p>
+    <p>No. of records : <span id="numRecords">0</span></p>
+    <p>No. of added records : <span id="numAdded">0</span></p>
+    <p>No. of edited records : <span id="numEdited">0</span></p>
+    <p>No. of deleted records : <span id="numDeleted">0</span></p>
+</div>
+
+<div class="newline"></div>
+
+<div id="searchOption">
+    <input type="text" id="search" onchange="searchButtonClicked(this)" placeholder="Search with Full Name">
+    <button type="button" id="clearSearch" onclick="clearSearchResults()">Clear Search</button>
+</div>
+
+<div class="newline"></div>
+<!-- add pagination around this -->
+<form autocomplete="off" onsubmit="">
+    <div class="table">
+    <table id="employeeList">
+        <thead> <tr> <div class="thead tr">
+            <td>
+                <div class="td">
+                    <label>First Name</label>
+                    <input type="text" id="search1" onchange="searchButtonClicked(this)" placeholder="First Name Search">
+                </div>
+            </td>
+            <td>
+                <div class="td">
+                    <label>Last Name</label>
+                    <input type="text" id="search2" onchange="searchButtonClicked(this)" placeholder="Last Name Search">
+                </div>
+            </td>
+            <td>
+                <div class="td">
+                    <label>Age</label>
+                    <input type="text" id="search3" onchange="searchButtonClicked(this)" placeholder="Age Search">
+                </div>
+            </td>
+            <td>
+                <div class="td">
+                    <label>Gender</label>
+                    <input type="text" id="search4" onchange="searchButtonClicked(this)" placeholder="Gender Search">
+                </div>
+            </td>
+            <td>
+                <div class="td">
+                    <label>Country</label>
+                    <input type="text" id="search5" onchange="searchButtonClicked(this)" placeholder="Country Search">
+                </div>
+            </td>
+            <td>
+                <div class="td">
+                    <label>Actions</label>
+                </div>
+            </td>
+        </div> </tr> </thead>
+        <tbody> <div class="tbody">
+
+        </div> </tbody>
+    </table>
+    </div>
+</form>
+
+<div class="newline">
+</div>
+<div class="left">
+    Rows count : 
+    <select id="recordCount" onChange="updateTableRowCount(this.options[this.selectedIndex].value)">
+      <option value=5>5</option>
+      <option value=10>10</option>
+    </select>
+</div>
+
+<div class="right">
+    <button class="paginationStuff" type="button" id="prevBtn" onclick="previousButtonClicked()">Prev</button>
+    <p class="paginationStuff"> Page : <span id="curPage">1</span></p>
+    <button class="paginationStuff" type="button" id="nextBtn" onclick="nextButtonClicked()">Next</button>
+</div>     
+
+<div class="block"></div>
+
+<!-- Add in table form -->
+<form autocomplete="off" onsubmit="onFormSubmit()" class="form1" >
+    <table id="container" class="item">
+        <tr class="grid">
+            <td>
+                <div class="text1">
+                    <label class="label1" for="firstName">First Name</label>
+                    <input type="text" class="input1" name="firstName" id="firstName" placeholder="First Name" required>
+                </div>
+            </td>
+            <td>
+                <div class="text1">
+                    <label class="label1" for="lastName">Last Name</label>
+                    <input type="text" class="input1" name="lastName" id="lastName" placeholder="Last Name" required>
+                </div>
+            </td>
+            <td>
+                <div class="text1">
+                    <label class="label1" for="age">Age</label>
+                    <input type="text" class="input1" name="age" id="age" placeholder=">0" required>
+                </div>
+            </td>
+            <td>
+                <div class="text1">
+                    <label class="label1" for="gender">Gender</label>
+                    <input type="text" class="input1" name="gender" id="gender" placeholder="Male/Female/Other" required>
+                </div>
+            </td>
+            <td>
+                <div class="text1">
+                    <label class="label1" for="country">Country</label>
+                    <input type="text" class="input1" name="country" id="country" placeholder="Country" required>
+                </div>
+            </td>
+            <td>
+                <div class="form_action--button">
+                    <input id="updateBtn" type="submit" value="Update">
+                    <input id="resetBtn" type="reset" value="Reset">
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+
+</html>
